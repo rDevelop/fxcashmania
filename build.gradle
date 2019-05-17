@@ -1,0 +1,47 @@
+buildscript {
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin'
+        //classpath 'org.springframework:springloaded'
+    }
+    repositories {
+        mavenCentral()
+    }
+}
+
+
+plugins {
+    id 'org.springframework.boot' version '2.1.4.RELEASE' apply false
+}
+
+group 'rlit.us'
+version '1.0-SNAPSHOT'
+
+
+apply plugin: 'idea'
+apply plugin: 'java-library'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+dependencyManagement {
+    imports {
+        mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
+    }
+}
+
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+
+
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter', version: '1.5.1.RELEASE'
+
+
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.4.2.RELEASE'
+}
